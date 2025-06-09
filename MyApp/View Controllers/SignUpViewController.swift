@@ -17,6 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     
@@ -104,6 +105,40 @@ class SignUpViewController: UIViewController {
                     
                     self.present(alertController, animated: true, completion: nil)
                 }
+            }
+        }
+    }
+    
+    func createUser () {
+        let userID = Auth.auth().currentUser!.uid
+        let username = usernameTextField.text!
+        let name = firstnamesTextField.text!
+        let surname = surnamesTextField.text!
+        let birthDate = dateOfBirthPicker.date
+        let gender = switch genderSegmentedControl.selectedSegmentIndex {
+        case 0:
+            Gender.male
+        case 1:
+            Gender.female
+        default:
+            Gender.other
+            }
+        
+        let user = User (id: userID, username: username, firstnames: name, surnames: surname, gender: gender, dateOfBirth: birthDate, provider: .basic)
+        
+        do {
+            let db = Firestore.firestore()
+            try db.collection("Users").document(userID).setData(from: user)
+            let alertController = UIAlertController(title: "Success", message: "Your account has been created successfully", preferredStyle: .alert)
+            { error in
+                if let error = error {
+                    print("Error adding document: \(error)")
+                } else {
+                    print("Document added successfully")
+                }
+            }
+                
+                
             }
         }
     }
