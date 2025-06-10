@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
     
@@ -80,11 +81,11 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func signUp(_ sender: Any) {
-        if validate() {
+        if (validate()) {
             let username = emailTextField.text ?? ""
             let password = passwordTextField.text ?? ""
             
-            Auth.auth().createUser(withEmail: username, password: password) { authResult, error in
+            Auth.auth().createUser(withEmail: username, password: password) {  [unowned self] authResult, error in
                 if let error = error {
                     // Hubo un error
                     print(error)
@@ -99,6 +100,8 @@ class SignUpViewController: UIViewController {
                     // Todo correcto
                     print("User signs up successfully")
                     
+                    createUser()
+                    
                     let alertController = UIAlertController(title: "Create user", message: "Signed up succesfully", preferredStyle: .alert)
                     
                     alertController.addAction(UIAlertAction(title: "OK", style: .default))
@@ -109,12 +112,12 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func createUser () {
+    func createUser() {
         let userID = Auth.auth().currentUser!.uid
         let username = usernameTextField.text!
-        let name = firstnamesTextField.text!
-        let surname = surnamesTextField.text!
-        let birthDate = dateOfBirthPicker.date
+        let firstNames = firstnamesTextField.text!
+        let surnames = surnamesTextField.text!
+        let birthday = dateOfBirthPicker.date
         let gender = switch genderSegmentedControl.selectedSegmentIndex {
         case 0:
             Gender.male
@@ -124,24 +127,23 @@ class SignUpViewController: UIViewController {
             Gender.other
             }
         
-        let user = User (id: userID, username: username, firstnames: name, surnames: surname, gender: gender, dateOfBirth: birthDate, provider: .basic)
+        let user = User (id: userID, username: username, firstNames: firstNames, surnames: surnames, gender: gender, birthday: birthday, provider: .basic)
         
         do {
             let db = Firestore.firestore()
+            
             try db.collection("Users").document(userID).setData(from: user)
             let alertController = UIAlertController(title: "Success", message: "Your account has been created successfully", preferredStyle: .alert)
-            { error in
-                if let error = error {
-                    print("Error adding document: \(error)")
-                } else {
-                    print("Document added successfully")
-                }
-            }
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+        } catch let error {
+            print("Error adding document: \(error)")
                 
-                
+            let alertController = UIAlertController(title: "Create user", message: error.localizedDescription, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true, completion: nil)
             }
         }
-    }
     
     @IBAction func genderSegmentedControl(_ sender: Any) {
         switch genderSegmentedControl.selectedSegmentIndex {

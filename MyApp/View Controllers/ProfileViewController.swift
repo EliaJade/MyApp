@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
     
@@ -43,6 +45,36 @@ class ProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func updateUser () {
+        let userID = Auth.auth().currentUser!.uid
+        let name = firstnamesTextField.text!
+        let surname = surnamesTextField.text!
+        let birthDate = dateOfBirthPicker.date
+        let gender = switch genderSegmentedControl.selectedSegmentIndex {
+        case 0:
+            Gender.male
+        case 1:
+            Gender.female
+        default:
+            Gender.other
+            }
+        
+        
+        do {
+            let db = Firestore.firestore()
+            //try db.collection("Users").document(userID).setData(from: user)
+            let alertController = UIAlertController(title: "Success", message: "Your account has been created successfully", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+        } catch let error {
+                    print("Error adding document: \(error)")
+                
+            let alertController = UIAlertController(title: "Create user", message: error.localizedDescription, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+            }
+        }
     
     @IBAction func genderSegmentedControl(_ sender: Any) {
         switch genderSegmentedControl.selectedSegmentIndex {
