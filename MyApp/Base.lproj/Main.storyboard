@@ -325,11 +325,11 @@
             </objects>
             <point key="canvasLocation" x="2057.2519083969464" y="3.5211267605633805"/>
         </scene>
-        <!--Profile-->
-        <scene sceneID="b7S-0l-vGi">
+        <!--Item-->
+        <scene sceneID="6aS-wC-6uz">
             <objects>
-                <viewController id="oTf-wP-UQT" customClass="ProfileViewController" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xuu-y5-BwA">
+                <viewController id="t4m-0W-1uh" customClass="ProfileViewController" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="16U-X5-WpE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -365,7 +365,7 @@
                                         </segments>
                                         <connections>
                                             <action selector="genderSegmentedControl:" destination="aDk-Uv-cEd" eventType="valueChanged" id="DGc-sJ-hL3"/>
-                                            <action selector="genderSegmentedControl:" destination="oTf-wP-UQT" eventType="valueChanged" id="qO8-oH-0Vg"/>
+                                            <action selector="genderSegmentedControl:" destination="t4m-0W-1uh" eventType="valueChanged" id="VZS-P5-c14"/>
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdT-CT-wHP">
@@ -395,9 +395,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Save"/>
-                                        <connections>
-                                            <action selector="getUserData:" destination="oTf-wP-UQT" eventType="touchUpInside" id="J9r-uB-wR1"/>
-                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6nC-gH-h2g">
                                         <rect key="frame" x="7" y="392" width="377" height="34"/>
@@ -409,30 +406,30 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="SZT-Ge-bdV"/>
+                        <viewLayoutGuide key="safeArea" id="y3T-me-v6e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="d6G-7w-2ED" firstAttribute="top" secondItem="SZT-Ge-bdV" secondAttribute="top" id="1mK-zS-JHo"/>
-                            <constraint firstItem="SZT-Ge-bdV" firstAttribute="bottom" secondItem="d6G-7w-2ED" secondAttribute="bottom" id="Edx-vC-Lbh"/>
-                            <constraint firstItem="SZT-Ge-bdV" firstAttribute="trailing" secondItem="d6G-7w-2ED" secondAttribute="trailing" id="Oud-Ap-DmI"/>
-                            <constraint firstItem="d6G-7w-2ED" firstAttribute="leading" secondItem="SZT-Ge-bdV" secondAttribute="leading" id="zkF-bi-0SQ"/>
+                            <constraint firstItem="y3T-me-v6e" firstAttribute="bottom" secondItem="d6G-7w-2ED" secondAttribute="bottom" id="DAm-Ik-NxZ"/>
+                            <constraint firstItem="d6G-7w-2ED" firstAttribute="trailing" secondItem="y3T-me-v6e" secondAttribute="trailing" id="TCx-so-isl"/>
+                            <constraint firstItem="d6G-7w-2ED" firstAttribute="top" secondItem="y3T-me-v6e" secondAttribute="top" id="TpM-fB-eza"/>
+                            <constraint firstItem="d6G-7w-2ED" firstAttribute="leading" secondItem="y3T-me-v6e" secondAttribute="leading" id="ucL-P7-g8L"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person.fill" id="cG0-pt-Kpl"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="fWh-3Z-kQo"/>
                     <connections>
-                        <outlet property="dateOfBirthPicker" destination="Osb-ke-1eS" id="lVp-Nk-u8I"/>
-                        <outlet property="emailTextField" destination="6nC-gH-h2g" id="l7f-kv-nd7"/>
-                        <outlet property="firstnamesTextField" destination="usy-vv-ybk" id="7vD-73-a1X"/>
-                        <outlet property="genderImageView" destination="mwz-tN-qt9" id="8kE-B4-I8M"/>
-                        <outlet property="genderSegmentedControl" destination="7VY-SQ-ZjV" id="dRa-s2-vFe"/>
-                        <outlet property="surnamesTextField" destination="nwB-4h-Csg" id="1Vc-sW-yde"/>
+                        <outlet property="dateOfBirthPicker" destination="Osb-ke-1eS" id="y1R-Su-C2D"/>
+                        <outlet property="emailTextField" destination="6nC-gH-h2g" id="hvd-BH-cQU"/>
+                        <outlet property="firstnamesTextField" destination="usy-vv-ybk" id="vQV-ir-95l"/>
+                        <outlet property="genderImageView" destination="mwz-tN-qt9" id="8Ju-Ex-WvK"/>
+                        <outlet property="genderSegmentedControl" destination="7VY-SQ-ZjV" id="735-yt-wwA"/>
+                        <outlet property="surnamesTextField" destination="nwB-4h-Csg" id="2mM-ve-awo"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fNi-jK-D8F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BIE-Qd-wRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113.74045801526717" y="1505.6338028169014"/>
+            <point key="canvasLocation" x="114" y="1506"/>
         </scene>
-        <!--Settings-->
+        <!--Item-->
         <scene sceneID="BjA-jW-DUl">
             <objects>
                 <viewController id="RQf-1h-QYb" sceneMemberID="viewController">
@@ -442,7 +439,7 @@
                         <viewLayoutGuide key="safeArea" id="d1P-VN-bBn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="Am6-e9-e9N"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="rlH-Yq-Fcv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQB-Sc-ltL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -459,16 +456,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="oTf-wP-UQT" kind="relationship" relationship="viewControllers" id="sSY-xM-Ugo"/>
-                        <segue destination="qbY-lg-OxV" kind="relationship" relationship="viewControllers" id="7SH-zt-Ctw"/>
-                        <segue destination="RQf-1h-QYb" kind="relationship" relationship="viewControllers" id="NjJ-PV-S2t"/>
+                        <segue destination="t4m-0W-1uh" kind="relationship" relationship="viewControllers" id="3VM-pu-CzE"/>
+                        <segue destination="qbY-lg-OxV" kind="relationship" relationship="viewControllers" id="tWH-me-kfo"/>
+                        <segue destination="RQf-1h-QYb" kind="relationship" relationship="viewControllers" id="twA-Yu-IiM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pof-Ga-PRj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1040" y="749"/>
         </scene>
-        <!--Home-->
+        <!--Item-->
         <scene sceneID="YTU-S0-CiN">
             <objects>
                 <viewController id="qbY-lg-OxV" customClass="HomeViewController" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -496,8 +493,7 @@
                         <viewLayoutGuide key="safeArea" id="rLy-g9-Tmo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="qx7-Gq-pBM"/>
-                    <navigationItem key="navigationItem" id="WKI-FP-ssq"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="y91-XF-dOF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsg-Gc-UBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -525,15 +521,9 @@
     <resources>
         <image name="apple" width="20" height="20"/>
         <image name="facebook" width="24" height="24"/>
-        <image name="gearshape" catalog="system" width="128" height="123"/>
-        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="genderIcon-female" width="80" height="80"/>
         <image name="google" width="18" height="18"/>
-        <image name="house" catalog="system" width="128" height="104"/>
-        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="logo" width="740" height="740"/>
-        <image name="person" catalog="system" width="128" height="121"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
