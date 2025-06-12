@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
+    //@IBOutlet weak var usernameTextField: UITextField!
     
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     
@@ -114,7 +114,7 @@ class SignUpViewController: UIViewController {
     
     func createUser() {
         let userID = Auth.auth().currentUser!.uid
-        let username = usernameTextField.text!
+        let username = emailTextField.text!
         let firstNames = firstnamesTextField.text!
         let surnames = surnamesTextField.text!
         let birthday = dateOfBirthPicker.date

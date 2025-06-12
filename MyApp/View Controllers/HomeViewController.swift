@@ -13,19 +13,6 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userID = Auth.auth().currentUser!.uid
-        let db = Firestore.firestore()
-        
-        let docRef = db.collection("Users").document(userID)
-        
-        Task {
-            do {
-                let user = try await docRef.getDocument(as: User.self)
-                print("User: \(user)")
-            } catch {
-                print ("Error getting document: \(error)")
-            }
-        }
     }
     
     @IBAction func signOut(_ sender: Any) {
